@@ -1,0 +1,40 @@
+{
+  "name": "pact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:consumer && npm run test:publish && npm run test:provider",
+    "test:consumer": "mocha test/consumer.spec.js",
+    "test:publish": "pact-broker publish ./pacts --consumer-app-version=\"1.0.0\" --auto-detect-version-properties --broker-base-url=http://127.0.0.1:8000 --broker-username pact_workshop --broker-password pact_workshop",
+    "test:provider": "mocha test/provider.spec.js",
+    "can-i-deploy": "npm run can-i-deploy:consumer && npm run can-i-deploy:provider",
+    "can-i-deploy:consumer": "pact-broker can-i-deploy --pacticipant 'Banking Service' --latest --broker-base-url=http://127.0.0.1:8000 --broker-username pact_workshop --broker-password pact_workshop",
+    "can-i-deploy:provider": "pact-broker can-i-deploy --pacticipant 'Bank Profile Service' --latest --broker-base-url=http://127.0.0.1:8000 --broker-username pact_workshop --broker-password pact_workshop",
+    "api": "concurrently 'npm run provider' 'npm run consumer'",
+    "consumer": "node ./consumerService.js",
+    "provider": "node ./providerService.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "absolute-version": "1.0.1",
+    "@pact-foundation/pact": "11.0.2",
+    "@pact-foundation/pact-core": "^14.0.1",
+    "body-parser": "^1.20.0",
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1",
+    "cli-color": "^2.0.3",
+    "concurrently": "^7.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-http-proxy": "^1.6.3",
+    "mocha": "^10.0.0",
+    "superagent": "^8.0.0"
+  },
+  "dependencies": {
+    "chai": "^4.3.10",
+    "retry": "^0.13.1"
+  }
+}

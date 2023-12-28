@@ -1,0 +1,30 @@
+{
+    "users": [
+        {
+            "name": "John Doe",
+            "date_of_birth": "1985-01-15",
+            "address": "123 Main Street, Anytown, USA",
+            "email": "john.doe@email.com",
+            "phone": "(555) 555-1234",
+            "account": {
+                "account_number": "1234567890",
+                "account_type": "Savings",
+                "balance": 5000.00,
+                "account_open_date": "2010-03-01"
+            }
+        },
+        {
+            "name": "Jane Smith",
+            "date_of_birth": "1990-09-25",
+            "address": "456 Oak Avenue, Anycity, USA",
+            "email": "jane.smith@email.com",
+            "phone": "(555) 555-5678",
+            "account": {
+                "account_number": "0987654321",
+                "account_type": "Checking",
+                "balance": 2500.00,
+                "account_open_date": "2015-07-10"
+            }
+        }
+    ]
+}
