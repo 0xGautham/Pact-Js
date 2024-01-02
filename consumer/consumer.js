@@ -21,7 +21,7 @@ const bankUsers = [
         accountNumber: '0987654321',
         balance: 2500.00,
     },
-    // Add more users as needed
+
 ];
 
 // Get all bank users
@@ -47,9 +47,9 @@ const transferMoney = (fromAccountNumber, toAccountNumber, amount) => {
     if (fromUser && toUser && fromUser.balance >= amount) {
         fromUser.balance -= amount;
         toUser.balance += amount;
-        return true; // Transfer successful
+        return true;
     } else {
-        return false; // Transfer failed
+        return false;
     }
 };
 
